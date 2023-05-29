@@ -39,11 +39,6 @@ func main() {
 	}
 	defer db.Close()
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS rates (date datetime, currency varchar(10), rate double)")
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	apiKey := os.Getenv("OPEN_EXCHANGE_RATES_API_KEY")
 	currencies := []string{"JPY", "EUR", "GBP"}
 
